@@ -1,65 +1,49 @@
 plugins {
-    kotlin("multiplatform")
+    id("multiplatform-setup")
     kotlin("native.cocoapods")
-    id("com.android.library")
+
+    id("publication-settings")
+    id("maven-publish")
 }
 
+group = "io.github.dmitriy1892.kmm.utils"
+version = libs.versions.kmm.utils.get()
+
 kotlin {
+
     android {
-        compilations.all {
-            kotlinOptions {
-                jvmTarget = "1.8"
-            }
-        }
+        publishLibraryVariants("release", "debug")
     }
-    iosX64()
-    iosArm64()
-    iosSimulatorArm64()
 
     cocoapods {
-        summary = "Some description for the Shared Module"
-        homepage = "Link to the Shared Module homepage"
+        summary = "Kotlin multiplatform utility classes and extensions"
+        homepage = "https://github.com/Dmitriy1892/KMM-Utils"
         version = "1.0"
         ios.deploymentTarget = "14.1"
+        name = "KmmUtils"
+        podfile = project.file("../iosApp/Podfile")
         framework {
-            baseName = "utils"
+            baseName = "KmmUtils"
         }
     }
-    
+
     sourceSets {
-        val commonMain by getting
-        val commonTest by getting {
+        commonMain {
             dependencies {
-                implementation(kotlin("test"))
+                implementation(libs.kotlinx.datetime)
+                implementation(libs.kotlinx.coroutines.core)
             }
         }
-        val androidMain by getting
-        val androidUnitTest by getting
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
-        val iosMain by creating {
-            dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
-        }
-        val iosX64Test by getting
-        val iosArm64Test by getting
-        val iosSimulatorArm64Test by getting
-        val iosTest by creating {
-            dependsOn(commonTest)
-            iosX64Test.dependsOn(this)
-            iosArm64Test.dependsOn(this)
-            iosSimulatorArm64Test.dependsOn(this)
+
+        androidMain {
+            dependencies {
+                implementation(libs.androidx.lifecycle.viewmodel)
+                implementation(libs.androidx.lifecycle.compose.viewmodel)
+            }
         }
     }
 }
 
 android {
     namespace = "com.coldfier.kmm.utils"
-    compileSdk = 33
-    defaultConfig {
-        minSdk = 23
-    }
 }

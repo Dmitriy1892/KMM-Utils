@@ -1,3 +1,5 @@
+enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
+
 pluginManagement {
     repositories {
         google()
@@ -9,13 +11,15 @@ pluginManagement {
 
 dependencyResolutionManagement {
     repositories {
-        google()
         mavenCentral()
+        google()
+    }
+
+    versionCatalogs {
+        create("libs") {
+            from(files("../gradle/libs.versions.toml"))
+        }
     }
 }
 
-rootProject.name = "KMM-Utils"
-
-include(":androidApp")
-include(":utils")
-
+rootProject.name = "buildSrc"
