@@ -1,8 +1,8 @@
-#KMM-Utils
-##About
+# KMM-Utils
+## About
 KMM-Utils is a library with useful classes and extensions for Kotlin Multiplatform Mobile development.
 
-##License
+## License
 
 Unless required by applicable law or
 agreed to in writing, Licensor provides the Work (and each
