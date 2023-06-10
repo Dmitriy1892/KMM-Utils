@@ -1,10 +1,10 @@
 [versions]
 
-kmm-utils = "0.0.2"
-
 compileSdk = "33"
 targetSdk = "33"
 minSdk = "23"
+
+iosTargetVersion = "14.1"
 
 appVersionMajor = "0"
 appVersionMinor = "0"
@@ -32,7 +32,7 @@ kotlinx-datetime = "0.4.0"
 ktor = "2.3.0"
 koin = "3.4.0"
 sqlDelight = "1.5.5"
-moko = "0.22.0"
+moko = "0.23.0"
 
 nexus-publish = "1.1.0"
 

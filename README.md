@@ -2,6 +2,12 @@
 ## About
 KMM-Utils is a library with useful classes and extensions for Kotlin Multiplatform Mobile development.
 
+## Download
+Add the following dependency into the build.gradle file to the dependencies block: 
+```
+implementation("io.github.dmitriy1892.kmm:utils:0.0.2")
+```
+
 ## License
 
 Unless required by applicable law or

@@ -6,8 +6,8 @@ plugins {
     id("maven-publish")
 }
 
-group = "io.github.dmitriy1892.kmm.utils"
-version = libs.versions.kmm.utils.get()
+group = "io.github.dmitriy1892.kmm"
+version = getMyLibraryVersion()
 
 kotlin {
 
@@ -19,7 +19,7 @@ kotlin {
         summary = "Kotlin multiplatform utility classes and extensions"
         homepage = "https://github.com/Dmitriy1892/KMM-Utils"
         version = "1.0"
-        ios.deploymentTarget = "14.1"
+        ios.deploymentTarget = libs.versions.iosTargetVersion.get()
         name = "KmmUtils"
         podfile = project.file("../iosApp/Podfile")
         framework {
@@ -35,15 +35,19 @@ kotlin {
             }
         }
 
-        androidMain {
+        commonTest {
             dependencies {
-                implementation(libs.androidx.lifecycle.viewmodel)
-                implementation(libs.androidx.lifecycle.compose.viewmodel)
+                implementation(kotlin("test"))
+                implementation(kotlin("test-annotations-common"))
             }
         }
     }
 }
 
 android {
-    namespace = "com.coldfier.kmm.utils"
+    namespace = "io.github.dmitriy1892.kmm.utils"
+
+    buildFeatures {
+        buildConfig = true
+    }
 }

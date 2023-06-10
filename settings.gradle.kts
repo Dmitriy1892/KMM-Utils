@@ -18,4 +18,3 @@ rootProject.name = "KMM-Utils"
 
 include(":androidApp")
 include(":utils")
-

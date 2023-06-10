@@ -7,6 +7,7 @@ kotlin {
         androidMain {
             dependencies {
                 implementation(project(":utils"))
+
                 implementation(libs.bundles.androidApp)
             }
         }
