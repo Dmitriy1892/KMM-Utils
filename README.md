@@ -5,7 +5,7 @@ KMM-Utils is a library with useful classes and extensions for Kotlin Multiplatfo
 ## Download
 Add the following dependency into the build.gradle file to the dependencies block: 
 ```
-implementation("io.github.dmitriy1892.kmm:utils:0.0.2")
+implementation("io.github.dmitriy1892.kmm:utils:<version>")
 ```
 
 ## License
