@@ -1,6 +1,3 @@
-import java.util.Base64
-import java.util.Properties
-
 plugins {
     `maven-publish`
     signing
@@ -33,9 +30,6 @@ publishing {
     }
 
     publications.withType<MavenPublication> {
-        // Stub javadoc.jar artifact
-//        artifact(javadocJar.get())
-
         pom {
             name.set("KMM-Utils")
             description.set("KMM-Utils is a library with useful classes and extensions for Kotlin Multiplatform Mobile development")
