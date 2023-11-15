@@ -4,11 +4,9 @@ import kotlinx.coroutines.flow.FlowCollector
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.first
 
-class EventMutableSharedFlow<T> private constructor(
-    private val sharedFlow: MutableSharedFlow<T>
+class EventMutableSharedFlow<T>(
+    private val sharedFlow: MutableSharedFlow<T> = MutableSharedFlow()
 ) : MutableSharedFlow<T> by sharedFlow {
-
-    constructor() : this(MutableSharedFlow())
 
     override suspend fun emit(value: T) {
         sharedFlow.subscriptionCount.first { it > 0 }
