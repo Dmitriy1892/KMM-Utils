@@ -20,12 +20,8 @@ android {
     defaultConfig {
         applicationId = "com.coldfier.kmm.utils.android"
 
-        val versionMajor = libs.versions.appVersionMajor.get().toInt()
-        val versionMinor = libs.versions.appVersionMinor.get().toInt()
-        val versionPatch = libs.versions.appVersionPatch.get().toInt()
-
-        versionCode = versionMajor * 10000 + versionMinor * 100 + versionPatch
-        versionName = "$versionMajor.$versionMinor.$versionPatch"
+        versionCode = 1
+        versionName = "1"
     }
 
     buildFeatures {

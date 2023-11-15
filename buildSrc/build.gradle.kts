@@ -11,11 +11,13 @@ dependencies {
     implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
 }
 
+private val projectJavaVersion: JavaVersion = JavaVersion.toVersion(libs.versions.java.get())
+
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = projectJavaVersion
+    targetCompatibility = projectJavaVersion
 }
 
 tasks.withType<KotlinCompile>().configureEach {
-    kotlinOptions.jvmTarget = "17"
+    kotlinOptions.jvmTarget = projectJavaVersion.toString()
 }

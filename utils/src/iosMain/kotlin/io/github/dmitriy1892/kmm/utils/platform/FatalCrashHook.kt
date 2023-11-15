@@ -1,7 +1,10 @@
 package io.github.dmitriy1892.kmm.utils.platform
 
+import kotlin.experimental.ExperimentalNativeApi
+
 object FatalCrashHook {
 
+    @OptIn(ExperimentalNativeApi::class)
     fun doBeforeAppCrashing(callback: (Throwable) -> Unit) {
         setUnhandledExceptionHook {
             callback(it)

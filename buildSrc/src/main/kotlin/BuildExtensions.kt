@@ -1,8 +1,13 @@
-import gradle.kotlin.dsl.accessors._2502cef48cff830615fe1c6d6ab5e104.ext
 import org.gradle.accessors.dm.LibrariesForLibs
+import org.gradle.api.JavaVersion
 import org.gradle.api.Project
+import org.gradle.api.plugins.ExtraPropertiesExtension
+import org.gradle.kotlin.dsl.getByName
 import org.gradle.kotlin.dsl.the
 import java.util.Properties
+
+val Project.projectJavaVersion: JavaVersion
+    get() = JavaVersion.toVersion(libs.versions.java.get().toInt())
 
 internal val Project.libs: LibrariesForLibs
     get() = the<LibrariesForLibs>()
@@ -41,4 +46,5 @@ fun Project.getSecretProperties(): Properties {
     }
 }
 
-fun Project.getExtraString(name: String) = ext[name]?.toString()
+fun Project.getExtraString(name: String): String? =
+    extensions.getByName<ExtraPropertiesExtension>("ext").get(name)?.toString()

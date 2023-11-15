@@ -1,4 +1,4 @@
-package io.github.dmitriy1892.kmm.utils.coroutines
+package io.github.dmitriy1892.kmm.utils.coroutines.mutex
 
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Mutex

@@ -1,6 +1,6 @@
 package io.github.dmitriy1892.kmm.utils.delegates
 
-import io.github.dmitriy1892.kmm.utils.coroutines.withThreadLock
+import io.github.dmitriy1892.kmm.utils.coroutines.mutex.withThreadLock
 import kotlinx.coroutines.sync.Mutex
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty

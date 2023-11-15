@@ -1,4 +1,4 @@
-package io.github.dmitriy1892.kmm.utils.coroutines
+package io.github.dmitriy1892.kmm.utils.coroutines.dispatcher
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
